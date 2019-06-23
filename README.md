@@ -3,7 +3,7 @@ service for collecting and storing sensor data
 
 ## install
 ```bash
-git clone <this repo>
+git clone https://github.com/jafow/sensorserver.git
 ```
 ### dependencies
 (optional but recommended)
