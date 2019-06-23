@@ -1,5 +1,6 @@
 import functools
 import json
+import logging
 
 from flask import (
     Blueprint,
@@ -12,8 +13,9 @@ from flask import (
     url_for,
 )
 
-from sensorserver import logger
 from sensorserver.db import get_db
+
+logger = logging.getLogger(__name__)
 
 bp = Blueprint("temperature", __name__, url_prefix="/temperature")
 

@@ -31,5 +31,6 @@ def create_app(test_config=None):
     try:
         os.makedirs(app.instance_path)
     except OSError:
-        logger.error("Uh oh! couldn't find instance!")
+        logger.info("instance folder already exists; moving on")
+        pass
     return app
