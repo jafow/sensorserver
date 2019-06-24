@@ -17,12 +17,18 @@ def create_app(test_config=None):
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
-        app.config.from_pyfile("config.py", silent=True)
+        app.config.from_object("sensorserver.config")
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
 
-    # register routes
+    # setup db
+    from sensorserver.db import init_app, init_db
+
+    init_app(app)
+    init_db(app)
+
+    # register server routes
     from sensorserver import temp
 
     app.register_blueprint(temp.bp)
